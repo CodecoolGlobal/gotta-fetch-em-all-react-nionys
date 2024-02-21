@@ -1,5 +1,5 @@
 import React from "react";
-import PokeImage from "./components/pokeimg";
+import PokeImage from "./Pokeimg";
 
 function Pokemon(props) {
   const usersPokemon = [
@@ -18,7 +18,7 @@ function Pokemon(props) {
       ))}
         </div>
         <div className="areaPokémon">
-        {areaPokémon.map((pokemon, index) => (
+        {areaPokémon&&areaPokémon.map((pokemon, index) => (
         <PokeImage key={index} link={pokemon.pokemon.url} direction='front_default' setSelectedPokemon={setSelectedAreaPokemon} />
       ))}
         </div>
