@@ -2,6 +2,7 @@ import React from "react";
 import PokeImage from "./Pokeimg";
 
 function Pokemon(props) {
+  console.log(props.encounter);
   const usersPokemon = [
     "https://pokeapi.co/api/v2/pokemon/bulbasaur",
     "https://pokeapi.co/api/v2/pokemon/charizard",
