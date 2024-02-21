@@ -77,3 +77,11 @@ img {
   overflow-y: auto;
   max-height: 50vh;
 }
+
+.pokemons{
+  display: flex;
+}
+
+.pokeDiv{
+  text-align: center;
+}

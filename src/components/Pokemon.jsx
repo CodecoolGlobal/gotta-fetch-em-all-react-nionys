@@ -1,17 +1,6 @@
 import React from "react";
 import PokeImage from "./Pokeimg";
-
-// async function fetchPokemon(id) {
-//   const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-//   const pokemon = await data.json();
-//   return pokemon;
-// }
-// async function fetchPokemons(myPokemonId, enemyPokemonId, setMyPokemon, setEnemyPokemon) {
-//   setMyPokemon(await fetchPokemon(myPokemonId));
-//   setEnemyPokemon(await fetchPokemon(enemyPokemonId));
-// }
-
-
+import NotFound from "./NotFound";
 
 function Pokemon(props) {
   const areaPokemons = props.areaPokemons;
@@ -19,16 +8,29 @@ function Pokemon(props) {
   const setSelectedUserPokemon = props.setSelectedUserPokemon;
   const setSelectedAreaPokemon = props.setSelectedAreaPokemon;
   return (
-    <div>
+    <div className="pokemons">
       <div className="userPokémon">
-        {userPokemons&&userPokemons.map((pokemon, index) => (
-          <PokeImage key={index} pokemon={pokemon} direction='back_default' setSelectedPokemon={setSelectedUserPokemon} />
-      ))}
+        <h3>Your Pokemons</h3>
+        {userPokemons.map((pokemon, index) => (
+          <PokeImage
+            key={index}
+            pokemon={pokemon}
+            direction="front_default"
+            setSelectedPokemon={setSelectedUserPokemon}
+          />
+        ))}
       </div>
       <div className="areaPokémon">
-        {areaPokemons&&areaPokemons.map((pokemon, index) => (
-          <PokeImage key={index} pokemon={pokemon} direction='front_default' setSelectedPokemon={setSelectedAreaPokemon} />
-    ))}
+        <h3>Enemy Pokemons</h3>
+        {areaPokemons ?
+          areaPokemons.map((pokemon, index) => (
+            <PokeImage
+              key={index}
+              pokemon={pokemon}
+              direction="front_default"
+              setSelectedPokemon={setSelectedAreaPokemon}
+            />
+          )): <NotFound/>}
       </div>
     </div>
   );

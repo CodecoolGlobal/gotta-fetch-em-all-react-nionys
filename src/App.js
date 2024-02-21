@@ -43,17 +43,17 @@ function App() {
         setUserPokemons={setUserPokemons}/>
       : (areaPokemons ? (
         <>
-          {userPokemons && <Pokemon
-            areaPokemons={areaPokemons}
-            userPokemons={userPokemons}
-            setSelectedUserPokemon={setSelectedUserPokemon}
-            setSelectedAreaPokemon={setSelectedAreaPokemon}
-          />}
           {selectedAreaPokemon && selectedUserPokemon ? (
             <button onClick={() => setBattleReady(true)}>Fight!</button>
-          ) : (
-            <h2>Please Chose Your Pokemon!</h2>
-          )}
+            ) : (
+              <h2>Please Chose Your Pokemon!</h2>
+              )}
+              {userPokemons && <Pokemon
+                areaPokemons={areaPokemons}
+                userPokemons={userPokemons}
+                setSelectedUserPokemon={setSelectedUserPokemon}
+                setSelectedAreaPokemon={setSelectedAreaPokemon}
+              />}
         </>
       ) : (
         <FirstPage
