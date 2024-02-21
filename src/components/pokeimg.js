@@ -14,8 +14,9 @@ function PokeImage(props) {
 
   return (
     <img
-      src={pokemon?.sprites.other.showdown.back_default}
+      src={pokemon?.sprites.other.showdown[props.direction]}
       alt={pokemon?.name}
+      onClick={()=>{props.setSelectedPokemon(pokemon)}}
     ></img>
   );
 }
