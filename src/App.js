@@ -46,18 +46,18 @@ function App() {
         battle={battle}
         setBattle={setBattle}></Battle>)
       : (pokemons ? (
-        <>
-          <Pokemon
-            encounter={pokemons}
-            setSelectedUserPokemon={setSelectedUserPokemon}
-            setSelectedAreaPokemon={setSelectedAreaPokemon}
-          />
+        <div className='pokeDiv'>
           {selectedAreaPokemon && selectedUserPokemon ? (
             <button onClick={() => fetchPokemons(selectedUserPokemon.name, selectedAreaPokemon.name, setMyPokemon, setEnemyPokemon)}>Fight!</button>
-          ) : (
-            <h2>Please Chose Your Pokemon!</h2>
-          )}
-        </>
+            ) : (
+              <h2>Please Chose Your Pokemon!</h2>
+              )}
+              <Pokemon
+                encounter={pokemons}
+                setSelectedUserPokemon={setSelectedUserPokemon}
+                setSelectedAreaPokemon={setSelectedAreaPokemon}
+              />
+        </div>
       ) : (
         <FirstPage
           locations={locations}
