@@ -14,11 +14,11 @@ async function fetchPokemons(myPokemonId, enemyPokemonId, setMyPokemon, setEnemy
 }
 
 function App() {
-  const myPokemonId = 1;
-  const enemyPokemonId = 4;
+  const myPokemonId = 6;
+  const enemyPokemonId = 9;
   const [myPokemon, setMyPokemon] = useState(null);
   const [enemyPokemon, setEnemyPokemon] = useState(null);
-  const [battle, setBattle] = useState({state: "not started", round: NaN, winner: "none"});
+  const [battle, setBattle] = useState({state: "not started", round: 1});
   useEffect(() => {
     fetchPokemons(myPokemonId, enemyPokemonId, setMyPokemon, setEnemyPokemon)
   }, []);

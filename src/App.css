@@ -1,0 +1,33 @@
+p{
+  white-space: pre-line;
+}
+
+img{
+  image-rendering: pixelated;
+}
+
+.Battle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemons{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.myPokemon,
+.enemyPokemon{
+  width: max-content;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.battleLog{
+  overflow-y: auto;
+  max-height: 50vh;
+}
