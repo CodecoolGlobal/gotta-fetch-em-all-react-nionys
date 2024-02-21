@@ -24,8 +24,8 @@ function Areas(props) {
 
   return (
     <div>
-      {areas.map((area) => (
-        <div className="areaBox" onClick={() => setLinkPokemons(area.url)}>
+      {areas.map((area, index) => (
+        <div key={index} className="areaBox" onClick={() => setLinkPokemons(area.url)}>
           <h1>{area.name}</h1>
         </div>
       ))}

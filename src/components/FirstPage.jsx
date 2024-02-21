@@ -10,6 +10,7 @@ function FirstPage(props) {
         props.locations.map((city, index) => (
           <Cities
             url={city.url}
+            key={index}
             index={index}
             name={city.name}
             click={() => props.setLinkAreas(city.url)}
