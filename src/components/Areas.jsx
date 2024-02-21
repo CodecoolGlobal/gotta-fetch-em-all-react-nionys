@@ -1,5 +1,17 @@
 import { useState, useEffect } from "react";
 
+ async function fetchAreasPokemons(pokemon_encounters) {
+  const areaPokemons = [];
+  for (const poke of pokemon_encounters){
+    const res = await fetch(poke.pokemon.url);
+    const pokemonData = await res.json();
+    areaPokemons.push(pokemonData)
+  }
+  return areaPokemons
+  }
+ 
+
+
 function Areas(props) {
   const [areas, setAreas] = useState([]);
   const [linkPokemons, setLinkPokemons] = useState(null);
@@ -17,18 +29,20 @@ function Areas(props) {
     async function fetchData() {
       const response = await fetch(linkPokemons);
       const data = await response.json();
-      props.setPokemons(data.pokemon_encounters);
+      const areaPokemons = await fetchAreasPokemons(data.pokemon_encounters)
+      props.setAreaPokemons(areaPokemons);
     }
     fetchData();
   }, [linkPokemons]);
 
   return (
     <div>
-      {areas.map((area) => (
-        <div className="areaBox" onClick={() => setLinkPokemons(area.url)}>
+      {areas.map((area, index) => (
+        <div key={index} className="areaBox" onClick={() => setLinkPokemons(area.url)}>
           <h1>{area.name}</h1>
         </div>
       ))}
+      <button onClick={() => props.setLinkAreas(null)}>Back </button>
     </div>
   );
 }

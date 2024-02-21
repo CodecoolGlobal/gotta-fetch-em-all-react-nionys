@@ -2,67 +2,64 @@ import { useEffect, useState } from 'react';
 import "./App.css";
 import Pokemon from "./components/Pokemon";
 import FirstPage from "./components/FirstPage";
-import Battle from './components/Battle';
-
-async function fetchPokemon(id) {
-  const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  const pokemon = await data.json();
-  return pokemon;
-}
-
-async function fetchPokemons(myPokemonId, enemyPokemonId, setMyPokemon, setEnemyPokemon) {
-  setMyPokemon(await fetchPokemon(myPokemonId));
-  setEnemyPokemon(await fetchPokemon(enemyPokemonId));
-}
+import BattlePage from './components/BattlePage';
 
 function App() {
-  
   const [locations, setLocations] = useState([]);
   const [linkAreas, setLinkAreas] = useState(null);
-  const [pokemons, setPokemons] = useState(null);
+  const [areaPokemons, setAreaPokemons] = useState(null);
 
   const [selectedUserPokemon, setSelectedUserPokemon] = useState(null);
   const [selectedAreaPokemon, setSelectedAreaPokemon] = useState(null);
+  const [userPokemons, setUserPokemons] = useState(null);
 
-  const [myPokemon, setMyPokemon] = useState(null);
-  const [enemyPokemon, setEnemyPokemon] = useState(null);
-  const [battle, setBattle] = useState({state: "not started", round: 1});
+  const [battleReady, setBattleReady] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://pokeapi.co/api/v2/location");
       const data = await response.json();
       setLocations(data.results);
+      const userPokemonNames = ['bulbasaur', 'charizard', 'poliwhirl'];
+      const userPokemons = [];
+      for (const name of userPokemonNames) {
+        userPokemons.push(await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`).then(data => data.json()));
+      }
+      setUserPokemons(userPokemons);
     }
     fetchData();
-  }, []);
 
+  }, []);
+  console.log('asdf', userPokemons);
   return (
     <div className="App">
-      {(myPokemon && enemyPokemon)
-      ? (<Battle
-        myPokemon={myPokemon}
-        enemyPokemon={enemyPokemon}
-        battle={battle}
-        setBattle={setBattle}></Battle>)
-      : (pokemons ? (
-        <div className='pokeDiv'>
+      {battleReady
+      ? <BattlePage
+        
+        myPokemon={selectedUserPokemon}
+        enemyPokemon={selectedAreaPokemon}
+        battleReady={battleReady}
+        setBattleReady={setBattleReady}
+        setUserPokemons={setUserPokemons}/>
+      : (areaPokemons ? (
+        <>
           {selectedAreaPokemon && selectedUserPokemon ? (
-            <button onClick={() => fetchPokemons(selectedUserPokemon.name, selectedAreaPokemon.name, setMyPokemon, setEnemyPokemon)}>Fight!</button>
+            <button onClick={() => setBattleReady(true)}>Fight!</button>
             ) : (
               <h2>Please Chose Your Pokemon!</h2>
               )}
-              <Pokemon
-                encounter={pokemons}
+              {userPokemons && <Pokemon
+                areaPokemons={areaPokemons}
+                userPokemons={userPokemons}
                 setSelectedUserPokemon={setSelectedUserPokemon}
                 setSelectedAreaPokemon={setSelectedAreaPokemon}
-              />
-        </div>
+              />}
+        </>
       ) : (
         <FirstPage
           locations={locations}
           linkAreas={linkAreas}
-          setPokemons={setPokemons}
+          setAreaPokemons={setAreaPokemons}
           setLinkAreas={setLinkAreas}
         />
       ))}

@@ -1,26 +1,64 @@
+body {
+  background-color: #2c6fbb;
+}
+
 .areaBox {
   text-align: center;
   border: 2px solid black;
   width: 50%;
   margin: auto;
 }
-.App div {
+
+.allLocations {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-p{
+
+.locationBox {
+  border: 1px dotted black;
+  text-align: center;
+  height: 300px;
+  width: 300px;
+}
+.locationBox:hover {
+  transform: scale(1.4);
+  transition: 500ms;
+  background-color: #2c6fbb;
+  color: red;
+}
+.locationBox img {
+  height: 250px;
+  width: 280px;
+  border-radius: 10%;
+  margin: 0%;
+  padding: 0%;
+}
+.locationBox h3 {
+  margin-bottom: 1000px;
+  padding: 0%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+p {
   white-space: pre-line;
 }
 
-img{
+img {
   image-rendering: pixelated;
 }
 
-.Battle{
+.Battle {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.pokemons{
+.pokemons {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -28,17 +66,18 @@ img{
 }
 
 .myPokemon,
-.enemyPokemon{
+.enemyPokemon {
   width: max-content;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.battleLog{
+.battleLog {
   overflow-y: auto;
   max-height: 50vh;
 }
+
 .pokemons{
   display: flex;
 }

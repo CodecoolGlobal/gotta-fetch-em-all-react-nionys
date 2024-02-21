@@ -3,20 +3,25 @@ import Cities from "./CityLocations";
 
 function FirstPage(props) {
   return (
-    <>
+    <div>
       {props.linkAreas ? (
-        <Areas url={props.linkAreas} setPokemons={props.setPokemons} />
+        <Areas
+          url={props.linkAreas}
+          setAreaPokemons={props.setAreaPokemons}
+          setLinkAreas={props.setLinkAreas}
+        />
       ) : (
-        props.locations.map((city, index) => (
-          <Cities
-            url={city.url}
-            index={index}
-            name={city.name}
-            click={() => props.setLinkAreas(city.url)}
-          />
-        ))
+          <><h1>Choose your hunting locations</h1><div className="allLocations">
+            {props.locations.map((city, index) => (
+              <Cities
+                url={city.url}
+                index={index}
+                name={city.name}
+                click={() => props.setLinkAreas(city.url)} />
+            ))}
+          </div></>
       )}
-    </>
+    </div>
   );
 }
 
