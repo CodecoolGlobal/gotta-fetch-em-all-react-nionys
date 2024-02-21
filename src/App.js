@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Cities from "./components/cityLocations";
-import Areas from "./components/areas";
+import Cities from "./components/CityLocations";
+import Areas from "./components/Areas";
+import Pokemon from "./components/Pokemon";
+import FirstPage from "./components/FirstPage";
 
 function App() {
   const [locations, setLocations] = useState([]);
-  const [linkAreas, setLinkLocations] = useState(null);
+  const [linkAreas, setLinkAreas] = useState(null);
   const [pokemons, setPokemons] = useState(null);
- //const [linkPokemons, setLinkPokemons] = useState(null)
-  //const [areas, setAreas] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://pokeapi.co/api/v2/location");
@@ -19,20 +19,33 @@ function App() {
   }, []);
 
   console.log(pokemons);
+  const [selectedUserPokemon, setSelectedUserPokemon] = useState(null);
+  const [selectedAreaPokemon, setSelectedAreaPokemon] = useState(null);
+
+  console.log(selectedUserPokemon);
+  console.log(selectedAreaPokemon);
   return (
     <div className="App">
-      {linkAreas ? (
-        <Areas url={linkAreas}
-       setPokemons={setPokemons} />
-      ) : (
-        locations.map((city, index) => (
-          <Cities
-            url={city.url}
-            index={index}
-            name={city.name}
-            click={() => setLinkLocations(city.url)}
+      {pokemons ? (
+        <>
+          <Pokemon
+            encounter={pokemons}
+            setSelectedUserPokemon={setSelectedUserPokemon}
+            setSelectedAreaPokemon={setSelectedAreaPokemon}
           />
-        ))
+          {selectedAreaPokemon && selectedUserPokemon ? (
+            <button>Fight!</button>
+          ) : (
+            <h2>Please Chose Your Pokemon!</h2>
+          )}
+        </>
+      ) : (
+        <FirstPage
+          locations={locations}
+          linkAreas={linkAreas}
+          setPokemons={setPokemons}
+          setLinkAreas={setLinkAreas}
+        />
       )}
     </div>
   );
