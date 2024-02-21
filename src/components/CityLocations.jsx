@@ -1,4 +1,4 @@
-import IMAGES from "./pokemon-locations/loc";
+import IMAGES from ".././pokemon-locations/loc";
 
 function Cities(props) {
   return (
