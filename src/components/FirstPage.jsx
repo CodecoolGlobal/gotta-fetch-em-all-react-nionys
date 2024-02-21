@@ -7,7 +7,7 @@ function FirstPage(props) {
       {props.linkAreas ? (
         <Areas
           url={props.linkAreas}
-          setPokemons={props.setPokemons}
+          setAreaPokemons={props.setAreaPokemons}
           setLinkAreas={props.setLinkAreas}
         />
       ) : (

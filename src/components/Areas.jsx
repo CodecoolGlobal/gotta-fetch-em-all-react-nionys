@@ -30,15 +30,15 @@ function Areas(props) {
       const response = await fetch(linkPokemons);
       const data = await response.json();
       const areaPokemons = await fetchAreasPokemons(data.pokemon_encounters)
-      props.setPokemons(areaPokemons);
+      props.setAreaPokemons(areaPokemons);
     }
     fetchData();
   }, [linkPokemons]);
 
   return (
     <div>
-      {areas.map((area) => (
-        <div className="areaBox" onClick={() => setLinkPokemons(area.url)}>
+      {areas.map((area, index) => (
+        <div key={index} className="areaBox" onClick={() => setLinkPokemons(area.url)}>
           <h1>{area.name}</h1>
         </div>
       ))}
