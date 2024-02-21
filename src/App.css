@@ -1,3 +1,11 @@
+.areaBox {
+  text-align: center;
+  border: 2px solid black;
+  width: 50%;
+  margin: auto;
+}
+.App div {
+}
 p{
   white-space: pre-line;
 }
