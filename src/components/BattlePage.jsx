@@ -30,7 +30,6 @@ export default function BattlePage(props) {
       setBattle(0);
     }
   }, [props.battleReady]);
-  console.log(battle);
   return <> {myPokemon && enemyPokemon && (battle.over
     ? <BattleEnd/>
     : <Battle myPokemon={myPokemon} enemyPokemon={enemyPokemon} battle={battle} setBattle={setBattle}/>)}

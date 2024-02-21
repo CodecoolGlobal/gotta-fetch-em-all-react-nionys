@@ -17,7 +17,7 @@ function Areas(props) {
     async function fetchData() {
       const response = await fetch(linkPokemons);
       const data = await response.json();
-      props.setPokemons(data.pokemon_encounters);
+      props.setAreaPokemons(data.pokemon_encounters);
     }
     fetchData();
   }, [linkPokemons]);

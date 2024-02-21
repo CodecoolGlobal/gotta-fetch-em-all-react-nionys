@@ -5,7 +5,7 @@ function FirstPage(props) {
   return (
     <>
       {props.linkAreas ? (
-        <Areas url={props.linkAreas} setPokemons={props.setPokemons} />
+        <Areas url={props.linkAreas} setAreaPokemons={props.setAreaPokemons} />
       ) : (
         props.locations.map((city, index) => (
           <Cities
