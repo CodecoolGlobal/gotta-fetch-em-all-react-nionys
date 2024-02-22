@@ -52,28 +52,43 @@ img {
   image-rendering: pixelated;
 }
 
-.Battle {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.pokemons {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.Battle { 
+  display: grid;
+  grid-template-columns: 40vw 20vw 40vw;
+  grid-template-rows: 10vh 90vh;
 }
 
 .myPokemon,
 .enemyPokemon {
-  width: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.battleLog {
-  overflow-y: auto;
-  max-height: 50vh;
+.myPokemon{
+  grid-column: 1;
+  grid-row: 1 / 2;
 }
+
+.enemyPokemon{
+  grid-column: 3;
+  grid-row: 1 / 2;
+}
+
+.attackButton{
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.battleLog{
+  grid-column: 2;
+  grid-row: 2;
+  overflow-y: auto;
+  max-height: 40vh;
+}
+
+.battlePokemonImage{
+  max-width: 40vw;
+  max-height: 60vh;
+}
+
