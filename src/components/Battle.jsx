@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BattlePokemon from "./BattlePokemon";
 
 function calcDamage(attack, defense) {
   const z = Math.floor(Math.random()*39)+217;
@@ -46,16 +47,8 @@ export default function Battle(props) {
 
   return <div className="Battle">
     <div className="pokemons">
-      <div className="myPokemon">
-        <h2>{props.myPokemon.name}</h2>
-        <img height="200" src={props.myPokemon.images.front} alt=""></img>
-        <h2>{props.myPokemon.hp}/{props.myPokemon.maxHp}</h2>
-      </div>
-      <div className="enemyPokemon">
-        <h2>{props.enemyPokemon.name}</h2>
-        <img height="200" src={props.enemyPokemon.images.front} alt=""></img>
-        <h2>{props.enemyPokemon.hp}/{props.enemyPokemon.maxHp}</h2>
-      </div>
+      <BattlePokemon pokemonObject={props.myPokemon} className="myPokemon"></BattlePokemon>
+      <BattlePokemon pokemonObject={props.enemyPokemon} className="enemyPokemon"></BattlePokemon>
     </div>
     <button disabled={disabled} onClick={
       () => playCombatRound(
