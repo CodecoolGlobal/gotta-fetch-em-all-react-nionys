@@ -12,7 +12,7 @@ export default function BattleEnd(props) {
       ${props.battle.winner} wins!`}
     </p>
     {/^your /.test(props.battle.winner) && <p>{props.selectedAreaPokemon.name} has been added to your pokéballs!</p>}
-    <button onClick={() => {returnToAreas(
+    <button className="button-85" onClick={() => {returnToAreas(
       props.setBattleReady,
       props.setAreaPokemons,
       props.setSelectedUserPokemon,

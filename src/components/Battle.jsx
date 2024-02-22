@@ -17,7 +17,7 @@ function playCombatRound(myPokemon, enemyPokemon, battle, setBattle, setMessage,
     const playerFainted = attack(enemyPokemon, myPokemon, setBattle, setMessage, setUserPokemons, selectedAreaPokemon);
     if (playerFainted) return;
     setBattle(b => ({...b, round: b.round+1}));
-  }, 1000);
+  }, 100);
 //sárkánybaszás
 }
 
@@ -48,7 +48,7 @@ export default function Battle(props) {
   return <div className="Battle">
     <BattlePokemon pokemonObject={props.myPokemon} className="myPokemon"></BattlePokemon>
     <BattlePokemon pokemonObject={props.enemyPokemon} className="enemyPokemon"></BattlePokemon>
-    <button className="attackButton" disabled={disabled} onClick={
+    <button className="attackButton button-85" disabled={disabled} onClick={
       () => playCombatRound(
         props.myPokemon,
         props.enemyPokemon,

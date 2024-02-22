@@ -47,9 +47,9 @@ function App() {
       : (areaPokemons ? (
         <>
           {selectedAreaPokemon && selectedUserPokemon ? (
-            <button onClick={() => setBattleReady(true)}>Fight!</button>
+           <div className='chose'> <button className="button-85" onClick={() => setBattleReady(true)}>Fight!</button></div>
             ) : (
-              <h2>Please Chose Your Pokemon!</h2>
+              <div className='chose'><h2>Please chose the pokemon!</h2></div>
               )}
               {userPokemons && <Pokemon
                 areaPokemons={areaPokemons}
