@@ -30,17 +30,20 @@ function App() {
     fetchData();
 
   }, []);
-  console.log('asdf', userPokemons);
   return (
     <div className="App">
       {battleReady
       ? <BattlePage
         
-        myPokemon={selectedUserPokemon}
-        enemyPokemon={selectedAreaPokemon}
+        selectedUserPokemon={selectedUserPokemon}
+        selectedAreaPokemon={selectedAreaPokemon}
+        setSelectedUserPokemon={setSelectedUserPokemon}
+        setSelectedAreaPokemon={setSelectedAreaPokemon}
         battleReady={battleReady}
         setBattleReady={setBattleReady}
+        setAreaPokemons={setAreaPokemons}
         setUserPokemons={setUserPokemons}/>
+
       : (areaPokemons ? (
         <>
           {selectedAreaPokemon && selectedUserPokemon ? (
