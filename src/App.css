@@ -143,6 +143,13 @@ img {
   margin: 5px;
   padding: 5px 10px;
   border-radius: 10px;
+  text-align: center;
+  width: 50%;
+  color: #ffcc01;
+  font-family: "Pixelify Sans", sans-serif;
+  letter-spacing: 9px;
+  margin: 1%;
+  background-color: #126c1493;
 }
 
 
@@ -160,6 +167,7 @@ img {
   grid-column: 2;
   grid-row: 1;
   margin: 5px;
+  font-size: 24px;
 }
 
 .battleLog{
