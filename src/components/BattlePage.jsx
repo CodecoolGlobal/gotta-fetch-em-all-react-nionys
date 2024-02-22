@@ -24,14 +24,29 @@ export default function BattlePage(props) {
   const [battle, setBattle] = useState({over: false, round: 0});
   useEffect(() => {
     if (props.battleReady) {
-      setMyPokemon(createPokemonObject(props.myPokemon));
+      setMyPokemon(createPokemonObject(props.selectedUserPokemon));
       setMyPokemon(p => ({...p, name: `your ${p.name}`}))
-      setEnemyPokemon(createPokemonObject(props.enemyPokemon));
-      setBattle(0);
+      setEnemyPokemon(createPokemonObject(props.selectedAreaPokemon));
+      setEnemyPokemon(p => ({...p, name: `enemy ${p.name}`}))
+      setBattle({over: false, round: 0});
     }
   }, [props.battleReady]);
   return <> {myPokemon && enemyPokemon && (battle.over
-    ? <BattleEnd/>
-    : <Battle myPokemon={myPokemon} enemyPokemon={enemyPokemon} battle={battle} setBattle={setBattle}/>)}
+    ? <BattleEnd
+      battle={battle}
+      setSelectedUserPokemon={props.setSelectedUserPokemon}
+      selectedAreaPokemon={props.selectedAreaPokemon}
+      setSelectedAreaPokemon={props.setSelectedAreaPokemon}
+      setAreaPokemons={props.setAreaPokemons}
+      setBattleReady={props.setBattleReady}
+    />
+    : <Battle
+      myPokemon={myPokemon}
+      enemyPokemon={enemyPokemon}
+      battle={battle} setBattle={setBattle}
+      setBattleReady={props.setBattleReady}
+      setUserPokemons={props.setUserPokemons}
+      selectedAreaPokemon={props.selectedAreaPokemon}
+    />)}
   </>
 }
