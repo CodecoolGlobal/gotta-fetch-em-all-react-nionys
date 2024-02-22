@@ -6,7 +6,7 @@ function returnToAreas(setBattleReady, setAreaPokemons, setSelectedUserPokemon, 
 }
 
 export default function BattleEnd(props) {
-  return <div>
+  return <div className="BattleEnd">
     <p>
       {`${props.battle.loser} fainted!
       ${props.battle.winner} wins!`}

@@ -5,8 +5,10 @@ function calcDamage(attack, defense) {
   const z = Math.floor(Math.random()*39)+217;
   return Math.round((2.88*attack/defense + 2 ) * z/255);
 }
+
+
 function playCombatRound(myPokemon, enemyPokemon, battle, setBattle, setMessage, setDisabled, setUserPokemons, selectedAreaPokemon) {
-  setMessage(m => `Round ${battle.round+1}`+'\n'+m);
+  setMessage(m => '\n'+m);
 
   const enemyFainted = attack(myPokemon, enemyPokemon, setBattle, setMessage, setUserPokemons, selectedAreaPokemon);
   if (enemyFainted) return;
@@ -20,7 +22,6 @@ function playCombatRound(myPokemon, enemyPokemon, battle, setBattle, setMessage,
   }, 100);
 //sárkánybaszás
 }
-
 
 function attack(attacker, defender, setBattle, setMessage, setUserPokemons, selectedAreaPokemon) {
   let dmg = calcDamage(attacker.attack, defender.defense);
