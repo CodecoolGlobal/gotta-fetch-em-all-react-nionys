@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 
- async function fetchAreasPokemons(pokemon_encounters) {
+async function fetchAreasPokemons(pokemon_encounters) {
   const areaPokemons = [];
-  for (const poke of pokemon_encounters){
+  for (const poke of pokemon_encounters) {
     const res = await fetch(poke.pokemon.url);
     const pokemonData = await res.json();
-    areaPokemons.push(pokemonData)
+    areaPokemons.push(pokemonData);
   }
-  return areaPokemons
-  }
- 
-
+  return areaPokemons;
+}
 
 function Areas(props) {
   const [areas, setAreas] = useState([]);
@@ -29,20 +27,30 @@ function Areas(props) {
     async function fetchData() {
       const response = await fetch(linkPokemons);
       const data = await response.json();
-      const areaPokemons = await fetchAreasPokemons(data.pokemon_encounters)
+      const areaPokemons = await fetchAreasPokemons(data.pokemon_encounters);
       props.setAreaPokemons(areaPokemons);
     }
     fetchData();
   }, [linkPokemons]);
 
+  const joinNames = (names) => {
+    return names.split("-").join(" ").toUpperCase();
+  };
+
   return (
-    <div>
+    <div className="listAreas">
       {areas.map((area, index) => (
-        <div key={index} className="areaBox" onClick={() => setLinkPokemons(area.url)}>
-          <h1>{area.name}</h1>
+        <div
+          key={index}
+          className="areaBox"
+          onClick={() => setLinkPokemons(area.url)}
+        >
+          <h2>{joinNames(area.name)}</h2>
         </div>
       ))}
-      <button onClick={() => props.setLinkAreas(null)}>Back </button>
+      <button className="button-85" onClick={() => props.setLinkAreas(null)}>
+        Back{" "}
+      </button>
     </div>
   );
 }

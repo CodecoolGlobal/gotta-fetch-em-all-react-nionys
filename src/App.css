@@ -1,12 +1,45 @@
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+@import url("https://fonts.cdnfonts.com/css/pixelify-sans");
+
 body {
-  background-color: #2c6fbb;
+  background-image: url("image/background.jpg");
+  background-position: 0%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+.listAreas {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: fit-content;
+  align-items: center;
+  text-align: center;
 }
 
 .areaBox {
   text-align: center;
-  border: 2px solid black;
   width: 50%;
+  color: #ffcc01;
+  font-family: "Pixelify Sans", sans-serif;
+  letter-spacing: 9px;
+  margin: 1%;
+  background-color: #126c1493;
+}
+.areaBox:hover {
+  transform: scale(1.4);
+  transition: 500ms;
+  background-color: #126c14;
+  color: white;
+}
+
+.areaBox h2 {
   margin: auto;
+  padding: 2%;
 }
 
 .allLocations {
@@ -20,16 +53,17 @@ body {
 }
 
 .locationBox {
-  border: 1px dotted black;
   text-align: center;
   height: 300px;
   width: 300px;
+  color: #ffcc01;
+  letter-spacing: 3px;
 }
 .locationBox:hover {
   transform: scale(1.4);
   transition: 500ms;
-  background-color: #2c6fbb;
-  color: red;
+  background-color: #126c14ad;
+  color: white;
 }
 .locationBox img {
   height: 250px;
@@ -39,9 +73,35 @@ body {
   padding: 0%;
 }
 .locationBox h3 {
-  margin-bottom: 1000px;
   padding: 0%;
-  font-family: "Courier New", Courier, monospace;
+  margin: 0%;
+  font-family: "Pixelify Sans", sans-serif;
+}
+.titleBox {
+  display: flex;
+  justify-content: center;
+}
+.titleBox img {
+  width: 60px;
+  height: 60px;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.titleBox h1 {
+  display: flex;
+  justify-content: center;
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 10px;
+  margin: 0%;
+  padding: 0%;
+  color: #ffcc01;
+}
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }
 
 p {
@@ -76,6 +136,158 @@ img {
 .battleLog {
   overflow-y: auto;
   max-height: 50vh;
+}
+
+.pokemons {
+  display: flex;
+}
+
+.pokeDiv {
+  text-align: center;
+}
+
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: black;
+  background: #ffcc01;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffcc01;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.pokemons {
+  display: flex;
+}
+
+.pokeDiv {
+  text-align: center;
+}
+
+.button-85 {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  color: black;
+  background: #ffcc01;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ffcc01;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 
 .pokemons{
