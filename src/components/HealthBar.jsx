@@ -10,8 +10,8 @@ function getHue(hue1, hue2, percent) {
 export default function HealthBar(props) {
   const ratio = (props.pokemonObject.hp-1)/props.pokemonObject.maxHp;
   const hue = getHue(HUE_RED, HUE_GREEN, ratio);
-  return <div className="HealthBar" style={{position: "relative", width: `${WIDTH}px`, flexBasis: `${HEIGHT}px`, flexShrink: "0", borderRadius: `${HEIGHT/2}px`, backgroundColor: "gray"}}>
-    <div style={{position:"absolute", width: `${(WIDTH-HEIGHT)*ratio+HEIGHT}px`, height: "100%", borderRadius: `${HEIGHT/2}px`, backgroundColor: `hsl(${hue}, 100%, 50%)`, transition: "1s linear"}}></div>
+  return <div className="HealthBar" style={{width: `${WIDTH}px`, flexBasis: `${HEIGHT}px`, borderRadius: `${HEIGHT/2}px`}}>
+    <div style={{width: `${(WIDTH-HEIGHT)*ratio+HEIGHT}px`, borderRadius: `${HEIGHT/2}px`, backgroundColor: `hsl(${hue}, 100%, 50%)`}}></div>
     <h2>{props.pokemonObject.hp} / {props.pokemonObject.maxHp}</h2>
   </div>
 }

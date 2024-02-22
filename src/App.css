@@ -383,3 +383,15 @@ img {
   padding: 10px;
   border-radius: 5px;
 }
+
+.HealthBar{
+  position: relative;
+  flex-shrink: 0;
+  background-color: gray;
+}
+
+.HealthBar>div{
+  position: absolute;
+  height: 100%;
+  transition: 1s linear;
+}
