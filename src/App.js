@@ -30,23 +30,26 @@ function App() {
     fetchData();
 
   }, []);
-  console.log('asdf', userPokemons);
   return (
     <div className="App">
       {battleReady
       ? <BattlePage
         
-        myPokemon={selectedUserPokemon}
-        enemyPokemon={selectedAreaPokemon}
+        selectedUserPokemon={selectedUserPokemon}
+        selectedAreaPokemon={selectedAreaPokemon}
+        setSelectedUserPokemon={setSelectedUserPokemon}
+        setSelectedAreaPokemon={setSelectedAreaPokemon}
         battleReady={battleReady}
         setBattleReady={setBattleReady}
+        setAreaPokemons={setAreaPokemons}
         setUserPokemons={setUserPokemons}/>
+
       : (areaPokemons ? (
         <>
           {selectedAreaPokemon && selectedUserPokemon ? (
-           <div className='chose'> <button onClick={() => setBattleReady(true)}>Fight!</button></div>
+           <div className='chose'> <button className="button-85" onClick={() => setBattleReady(true)}>Fight!</button></div>
             ) : (
-              <div className='chose'><h2>Please chose the pokemons!</h2></div>
+              <div className='chose'><h2>Please chose the pokemon!</h2></div>
               )}
               {userPokemons && <Pokemon
                 areaPokemons={areaPokemons}
