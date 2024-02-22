@@ -108,6 +108,18 @@ p {
   white-space: pre-line;
 }
 
+.HealthBar{
+  display: flex;
+  align-items: center;
+}
+
+.HealthBar h2{
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+}
+
 img {
   image-rendering: pixelated;
 }
@@ -125,6 +137,14 @@ img {
   align-items: center;
 }
 
+.myPokemon>h2,
+.enemyPokemon>h2{
+  background-color: rgba(255,  255,  255,  0.5);
+  margin: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
 
 .myPokemon{
   grid-column: 1;
@@ -139,18 +159,33 @@ img {
 .attackButton{
   grid-column: 2;
   grid-row: 1;
+  margin: 5px;
 }
 
 .battleLog{
+  margin: 5px;
+  border-radius: 10px;
+  background-color: rgba(255,  255,  255,  0.5);
   grid-column: 2;
   grid-row: 2;
   overflow-y: auto;
-  max-height: 40vh;
+  max-height: 80vh;
 }
 
 .battlePokemonImage{
-  max-width: 40vw;
-  max-height: 60vh;
+  width: 250px;
+  height: 250px;
+}
+
+.BattleEnd{
+  background-color: rgba(255,  255,  255,  0.5);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-85 {

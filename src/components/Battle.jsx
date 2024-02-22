@@ -6,7 +6,7 @@ function calcDamage(attack, defense) {
   return Math.round((2.88*attack/defense + 2 ) * z/255);
 }
 function playCombatRound(myPokemon, enemyPokemon, battle, setBattle, setMessage, setDisabled, setUserPokemons, selectedAreaPokemon) {
-  setMessage(m => `Round ${battle.round+1}`+'\n'+m);
+  setMessage(m => '\n'+m);
 
   const enemyFainted = attack(myPokemon, enemyPokemon, setBattle, setMessage, setUserPokemons, selectedAreaPokemon);
   if (enemyFainted) return;
