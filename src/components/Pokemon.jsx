@@ -1,6 +1,4 @@
 import React from "react";
-import PokeImage from "./Pokeimg";
-import NotFound from "./NotFound";
 import ImageSlider from "./ImageSlider";
 
 function Pokemon(props) {
