@@ -169,12 +169,12 @@ p {
   white-space: pre-line;
 }
 
-.HealthBar{
+.HealthBar {
   display: flex;
   align-items: center;
 }
 
-.HealthBar h2{
+.HealthBar h2 {
   width: 100%;
   text-align: center;
   margin: 0;
@@ -198,9 +198,9 @@ img {
   align-items: center;
 }
 
-.myPokemon>h2,
-.enemyPokemon>h2{
-  background-color: rgba(255,  255,  255,  0.5);
+.myPokemon > h2,
+.enemyPokemon > h2 {
+  background-color: rgba(255, 255, 255, 0.5);
   margin: 5px;
   padding: 5px 10px;
   border-radius: 10px;
@@ -213,9 +213,9 @@ img {
   background-color: #126c1493;
 }
 
-.myPokemon>h2,
-.enemyPokemon>h2{
-  background-color: rgba(255,  255,  255,  0.5);
+.myPokemon > h2,
+.enemyPokemon > h2 {
+  background-color: rgba(255, 255, 255, 0.5);
   margin: 5px;
   padding: 5px 10px;
   border-radius: 10px;
@@ -245,23 +245,23 @@ img {
   font-size: 24px;
 }
 
-.battleLog{
+.battleLog {
   margin: 5px;
   border-radius: 10px;
-  background-color: rgba(255,  255,  255,  0.5);
+  background-color: rgba(255, 255, 255, 0.5);
   grid-column: 2;
   grid-row: 2;
   overflow-y: auto;
   max-height: 80vh;
 }
 
-.battlePokemonImage{
+.battlePokemonImage {
   width: 250px;
   height: 250px;
 }
 
-.BattleEnd{
-  background-color: rgba(255,  255,  255,  0.5);
+.BattleEnd {
+  background-color: #126c1493;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -429,6 +429,9 @@ img {
   margin: 0 auto;
   text-align: center;
 }
+.userPokemonSlider img {
+  transform: scaleX(-1);
+}
 .chose {
   text-align: center;
 }
@@ -438,4 +441,25 @@ img {
   background-color: rgba(0, 0, 0, 0.5);
   padding: 10px;
   border-radius: 5px;
+}
+
+.BattleEnd p {
+  text-align: center;
+  width: 50%;
+  color: #ffcc01;
+  font-family: "Pixelify Sans", sans-serif;
+  letter-spacing: 9px;
+  margin: 1%;
+  background-color: rgba(255, 255, 255, 0.499);
+  font-size: 200%;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.BattleEnd button {
+  height: 10%;
+  width: 200px;
+  font-size: 150%;
+}
+.firstBall {
+  transform: scaleX(-1);
 }

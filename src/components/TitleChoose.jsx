@@ -11,7 +11,7 @@ function TitleChoose(props) {
         onClick={() => props.setAreaPokemons(null)}
       />
       <div className="titleBox">
-        <img src={pokeball} alt={"pokeball"} />
+        <img src={pokeball} alt={"pokeball"} className="firstBall" />
         {props.selectedAreaPokemon && props.selectedUserPokemon ? (
           <div className="title">
             {" "}
