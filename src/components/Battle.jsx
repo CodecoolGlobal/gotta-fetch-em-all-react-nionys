@@ -57,7 +57,7 @@ export default function Battle(props) {
         props.setBattle,
         setMessage,
         setDisabled,
-        props.setUserPokemons,
+        props.onSetUserPokemons,
         props.selectedAreaPokemon,
       )
     }>

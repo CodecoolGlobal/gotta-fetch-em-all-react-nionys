@@ -23,7 +23,7 @@ function ImageSlider(props) {
         src={props.pokemon[pokeIndex].sprites.other.showdown.front_default}
         alt={props.pokemon[pokeIndex].name}
         onClick={() => {
-          props.setSelectedPokemon(props.pokemon[pokeIndex]);
+          props.onSetSelectedPokemon(props.pokemon[pokeIndex]);
         }}
       />
       <button

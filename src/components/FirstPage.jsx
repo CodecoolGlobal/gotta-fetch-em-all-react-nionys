@@ -13,12 +13,12 @@ function FirstPage(props) {
             src={pokeball}
             logo={logo}
             linkAreas={props.linkAreas}
-            setLinkAreas={props.setLinkAreas}
+            onSetLinkAreas={props.onSetLinkAreas}
           />
           <Areas
             url={props.linkAreas}
-            setAreaPokemons={props.setAreaPokemons}
-            setLinkAreas={props.setLinkAreas}
+            onSetAreaPokemons={props.onSetAreaPokemons}
+            onSetLinkAreas={props.onSetLinkAreas}
           />
         </>
       ) : (
@@ -27,7 +27,7 @@ function FirstPage(props) {
             src={pokeball}
             logo={logo}
             linkAreas={props.linkAreas}
-            setBattleReady={props.setBattleReady}
+            onSetBattleReady={props.onSetBattleReady}
           />
           <div className="allLocations">
             {props.locations.map((city, index) => (
@@ -36,7 +36,7 @@ function FirstPage(props) {
                 key={index}
                 index={index}
                 name={city.name}
-                click={() => props.setLinkAreas(city.url)}
+                click={() => props.onSetLinkAreas(city.url)}
               />
             ))}
           </div>
