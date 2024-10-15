@@ -16,12 +16,19 @@ function App() {
 
   const [battleReady, setBattleReady] = useState(false);
 
+  const handleSetAreaPokemons = (pokemons) => setAreaPokemons(pokemons);
+  const handleSetLinkAreas = (areas) => setLinkAreas(areas);
+  const handleSetSelectedUserPokemon = (pokemon) => setSelectedUserPokemon(pokemon);
+  const handleSetSelectedAreaPokemon = (pokemon) => setSelectedAreaPokemon(pokemon);
+  const handleSetBattleReady = (ready) => setBattleReady(ready);
+  const handleSetUserPokemons = (pokemons) => setUserPokemons(pokemons);
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("https://pokeapi.co/api/v2/location");
       const data = await response.json();
       setLocations(data.results);
-      const userPokemonNames = ["bulbasaur", "charizard", "poliwhirl"];
+      const userPokemonNames = ["bulbasaur", "charizard", "poliwhirl", "pikachu"];
       const userPokemons = [];
       for (const name of userPokemonNames) {
         userPokemons.push(
@@ -40,27 +47,27 @@ function App() {
         <BattlePage
           selectedUserPokemon={selectedUserPokemon}
           selectedAreaPokemon={selectedAreaPokemon}
-          setSelectedUserPokemon={setSelectedUserPokemon}
-          setSelectedAreaPokemon={setSelectedAreaPokemon}
+          onSetSelectedUserPokemon={handleSetSelectedUserPokemon}
+          onSetSelectedAreaPokemon={handleSetSelectedAreaPokemon}
           battleReady={battleReady}
-          setBattleReady={setBattleReady}
-          setAreaPokemons={setAreaPokemons}
-          setUserPokemons={setUserPokemons}
+          onSetBattleReady={handleSetBattleReady}
+          onSetAreaPokemons={handleSetAreaPokemons}
+          onSetUserPokemons={handleSetUserPokemons}
         />
       ) : areaPokemons ? (
         <>
           <TitleChoose
             selectedAreaPokemon={selectedAreaPokemon}
             selectedUserPokemon={selectedUserPokemon}
-            setBattleReady={setBattleReady}
-            setAreaPokemons={setAreaPokemons}
+            onSetBattleReady={handleSetBattleReady}
+            onSetAreaPokemons={handleSetAreaPokemons}
           />
           {userPokemons && (
             <Pokemon
               areaPokemons={areaPokemons}
               userPokemons={userPokemons}
-              setSelectedUserPokemon={setSelectedUserPokemon}
-              setSelectedAreaPokemon={setSelectedAreaPokemon}
+              onSetSelectedUserPokemon={handleSetSelectedUserPokemon}
+              onSetSelectedAreaPokemon={handleSetSelectedAreaPokemon}
             />
           )}
         </>
@@ -68,8 +75,8 @@ function App() {
         <FirstPage
           locations={locations}
           linkAreas={linkAreas}
-          setAreaPokemons={setAreaPokemons}
-          setLinkAreas={setLinkAreas}
+          onSetAreaPokemons={handleSetAreaPokemons}
+          onSetLinkAreas={handleSetLinkAreas}
         />
       )}
     </div>

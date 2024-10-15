@@ -27,10 +27,10 @@ export default function BattleEnd(props) {
         className="button-85"
         onClick={() => {
           returnToAreas(
-            props.setBattleReady,
-            props.setAreaPokemons,
-            props.setSelectedUserPokemon,
-            props.setSelectedAreaPokemon
+            props.onSetBattleReady,
+            props.onSetAreaPokemons,
+            props.onSetSelectedUserPokemon,
+            props.onSetSelectedAreaPokemon
           );
         }}
       >

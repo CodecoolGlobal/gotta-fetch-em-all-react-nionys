@@ -1,7 +1,7 @@
 function TitleBox(props) {
   return (
     <>
-      <img src={props.logo} alt={"logo"} className="logo" onClick={() => props.setLinkAreas()}/>
+      <img src={props.logo} alt={"logo"} className="logo" onClick={() => props.onSetLinkAreas()}/>
       <div className="titleBox">
         <img src={props.src} alt={"pokeball"} className="firstBall" />
         {props.linkAreas ? (

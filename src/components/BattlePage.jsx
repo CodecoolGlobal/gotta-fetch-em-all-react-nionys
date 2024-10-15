@@ -30,22 +30,22 @@ export default function BattlePage(props) {
       setEnemyPokemon(p => ({...p, name: `enemy ${p.name}`}))
       setBattle({over: false, round: 0});
     }
-  }, [props.battleReady]);
+  }, [props.battleReady, props.selectedAreaPokemon, props.selectedUserPokemon]);
   return <> {myPokemon && enemyPokemon && (battle.over
     ? <BattleEnd
       battle={battle}
-      setSelectedUserPokemon={props.setSelectedUserPokemon}
+      onSetSelectedUserPokemon={props.onSetSelectedUserPokemon}
       selectedAreaPokemon={props.selectedAreaPokemon}
-      setSelectedAreaPokemon={props.setSelectedAreaPokemon}
-      setAreaPokemons={props.setAreaPokemons}
-      setBattleReady={props.setBattleReady}
+      onSetSelectedAreaPokemon={props.onSetSelectedAreaPokemon}
+      onSetAreaPokemons={props.onSetAreaPokemons}
+      onSetBattleReady={props.onSetBattleReady}
     />
     : <Battle
       myPokemon={myPokemon}
       enemyPokemon={enemyPokemon}
       battle={battle} setBattle={setBattle}
-      setBattleReady={props.setBattleReady}
-      setUserPokemons={props.setUserPokemons}
+      onSetBattleReady={props.onSetBattleReady}
+      onSetUserPokemons={props.onSetUserPokemons}
       selectedAreaPokemon={props.selectedAreaPokemon}
     />)}
   </>

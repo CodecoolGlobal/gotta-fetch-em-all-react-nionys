@@ -8,7 +8,7 @@ function TitleChoose(props) {
         src={logo}
         alt={"logo"}
         className="logo"
-        onClick={() => props.setAreaPokemons(null)}
+        onClick={() => props.onSetAreaPokemons(null)}
       />
       <div className="titleBox">
         <img src={pokeball} alt={"pokeball"} className="firstBall" />
@@ -17,7 +17,7 @@ function TitleChoose(props) {
             {" "}
             <button
               className="button-85 fight"
-              onClick={() => props.setBattleReady(true)}
+              onClick={() => props.onSetBattleReady(true)}
             >
               Fight!
             </button>

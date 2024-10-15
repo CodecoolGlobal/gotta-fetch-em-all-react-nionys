@@ -21,17 +21,17 @@ function Areas(props) {
       setAreas(data.areas);
     }
     fetchData();
-  }, []);
+  }, [props.url]);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(linkPokemons);
       const data = await response.json();
       const areaPokemons = await fetchAreasPokemons(data.pokemon_encounters);
-      props.setAreaPokemons(areaPokemons);
+      props.onSetAreaPokemons(areaPokemons);
     }
     fetchData();
-  }, [linkPokemons]);
+  }, [linkPokemons, props]);
 
   const joinNames = (names) => {
     return names.split("-").join(" ").toUpperCase();
@@ -48,7 +48,7 @@ function Areas(props) {
           <h2>{joinNames(area.name)}</h2>
         </div>
       ))}
-      <button className="button-85" onClick={() => props.setLinkAreas(null)}>
+      <button className="button-85" onClick={() => props.onSetLinkAreas(null)}>
         Back{" "}
       </button>
     </div>

@@ -4,8 +4,8 @@ import ImageSlider from "./ImageSlider";
 function Pokemon(props) {
   const areaPokemons = props.areaPokemons;
   const userPokemons = props.userPokemons;
-  const setSelectedUserPokemon = props.setSelectedUserPokemon;
-  const setSelectedAreaPokemon = props.setSelectedAreaPokemon;
+  const onSetSelectedUserPokemon = props.onSetSelectedUserPokemon;
+  const onSetSelectedAreaPokemon = props.onSetSelectedAreaPokemon;
   return (
     <div className="pokemonSlider">
       <div className="userPokemonSlider">
@@ -13,7 +13,7 @@ function Pokemon(props) {
         {
           <ImageSlider
             pokemon={userPokemons}
-            setSelectedPokemon={setSelectedUserPokemon}
+            onSetSelectedPokemon={onSetSelectedUserPokemon}
           />
         }
       </div>
@@ -22,7 +22,7 @@ function Pokemon(props) {
         {
           <ImageSlider
             pokemon={areaPokemons}
-            setSelectedPokemon={setSelectedAreaPokemon}
+            onSetSelectedPokemon={onSetSelectedAreaPokemon}
             
           />
         }
