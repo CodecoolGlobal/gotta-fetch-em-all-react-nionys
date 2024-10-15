@@ -20,17 +20,17 @@ function playCombatRound(myPokemon, enemyPokemon, battle, setBattle, setMessage,
     if (playerFainted) return;
     setBattle(b => ({...b, round: b.round+1}));
   }, 100);
-//sárkánybaszás
+
 }
 
 function attack(attacker, defender, setBattle, setMessage, setUserPokemons, selectedAreaPokemon) {
   let dmg = calcDamage(attacker.attack, defender.defense);
   defender.hp -= dmg;
-  setMessage(m => `${attacker.name} attacks ${defender.name} for ${dmg} damage!`+'\n'+m);
+  setMessage(m => `${attacker.name} attacks ${defender.name} for ${dmg} damage!'\n'${m}`);
   if (defender.hp <= 0) {
     setBattle({over: true, winner: attacker.name, loser: defender.name});
     if (/^your /.test(attacker.name)) setUserPokemons(uP => [...uP, selectedAreaPokemon]);
-    setMessage(m => `${defender.name} fainted!`+'\n'+m);
+    setMessage(m => `${defender.name} fainted! '\n'${m}`);
     return true;
   }
   return false;
