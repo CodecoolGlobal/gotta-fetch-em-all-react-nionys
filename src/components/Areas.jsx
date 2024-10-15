@@ -30,7 +30,9 @@ function Areas(props) {
       const areaPokemons = await fetchAreasPokemons(data.pokemon_encounters);
       props.onSetAreaPokemons(areaPokemons);
     }
-    fetchData();
+    if(linkPokemons != null){
+      fetchData();
+    }
   }, [linkPokemons, props]);
 
   const joinNames = (names) => {

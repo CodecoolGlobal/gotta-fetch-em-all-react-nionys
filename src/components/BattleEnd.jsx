@@ -21,7 +21,7 @@ export default function BattleEnd(props) {
       </p>
       {/^your /.test(props.battle.winner) && (
         <><p>
-          {props.selectedAreaPokemon.name} has been added to your pokéballs!</p><img src={pokeball} /></>
+          {props.selectedAreaPokemon.name} has been added to your pokéballs!</p><img alt= "pokeball" src={pokeball} /></>
       )}
       <button
         className="button-85"
