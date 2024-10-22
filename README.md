@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Fetch the Pokemon 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Pokémon-themed website built with React and containerized using Docker. It leverages the Pokémon API to allow users to select areas, explore locations, and engage in Pokémon battles. The goal is to provide a fun and interactive experience for Pokémon fans.
 
-## Available Scripts
+## Table of Contents
+- [Fetch the Pokemon](#fetch-the-pokemon)
+  - [Table of Contents](#table-of-contents)
+  - [Project Overview](#project-overview)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Docker Setup](#docker-setup)
+  - [Screenshots](#screenshots)
+    - [Area Selection](#area-selection)
+    - [Pokémon Battle](#pokémon-battle)
+  - [API Information](#api-information)
+  - [Contributors](#contributors)
+  - [License](#license)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project was developed by a team of three developers. It is a fully interactive website where users can explore different areas from the Pokémon world, select locations, choose Pokémon, and engage in battles. The application uses the Pokémon API to fetch Pokémon data and render various battle statistics.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Area and Location Selection**: Users can choose from different areas in the Pokémon universe and navigate through various locations.
+- **Pokémon Battle System**: Users can select their Pokémon and an enemy Pokémon to engage in a turn-based battle.
+- **Real-time API Data**: The website uses the Pokémon API to retrieve live data on Pokémon, including their stats, abilities, and types.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To install and run the project locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Nuubshybot/fetch-the-pokemon.git
+   cd pokemon-website 
+    ```
+2.  **Install dependencies**:
+    ```bash    
+    npm install
+     ```
+3.  **Start the development server**:
+    
+    ```bash
+    npm start
+     ``` 
+The website will be available at `http://localhost:3000`.
 
-### `npm run eject`
+----------
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1.  **Select an Area**: After loading the website, you can choose from different areas of the Pokémon world.
+2.  **Choose a Location**: Once the area is selected, explore various locations within that area.
+3.  **Battle Setup**: Select your Pokémon and the enemy Pokémon. The battle will simulate using stats retrieved from the API.
+4.  **Engage in Battle**: Use turn-based actions to defeat the enemy Pokémon, with real-time stats being displayed for each action.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+----------
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Docker Setup
 
-## Learn More
+To run the project using Docker, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1.  **Build the Docker image**:
+    
+    ```bash
+    docker build -t pokemon .
+    ```
+2.  **Run the Docker container**:
+    
+    ```bash
+    docker run -p 3000:3000 -d pokemon
+    ```
+3.  Once the containers are up, access the website at `http://localhost:3000`.
+    
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+----------
 
-### Code Splitting
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Area Selection
+![Area Selection](images/area.jpg)
 
-### Analyzing the Bundle Size
+### Pokémon Battle
+![Battle](images/battle.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+----------
 
-### Making a Progressive Web App
+## API Information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project uses the [PokéAPI](https://pokeapi.co/) to retrieve Pokémon data. The API provides detailed information about each Pokémon, including stats, types, and abilities, which are dynamically fetched and displayed during battles.
 
-### Advanced Configuration
+----------
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributors
 
-### Deployment
+-   **Zoli** - [@NuubShybot](https://github.com/Nuubshybot)
+-   **Samu** - [@nionys](https://github.com/nionys)
+-   **Attila** - [@Attila112](https://github.com/Attila112)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project is licensed under the MIT License.
