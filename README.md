@@ -1,3 +1,5 @@
+![screenshot](images/screenshot-3.png)
+
 # Fetch the Pokemon 
 
 This project is a Pokémon-themed website built with React and containerized using Docker. It leverages the Pokémon API to allow users to select areas, explore locations, and engage in Pokémon battles. The goal is to provide a fun and interactive experience for Pokémon fans.
@@ -85,11 +87,8 @@ To run the project using Docker, follow these steps:
 
 ## Screenshots
 
-### Area Selection
-![Area Selection](images/area.jpg)
-
 ### Pokémon Battle
-![Battle](images/battle.jpg)
+![Battle](images/screenshot-4.png)
 
 ----------
 
